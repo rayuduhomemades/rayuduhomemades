@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RAYUDU Homemades - 100% Natural Hair & Skin Care Products">
+  <meta name="keywords" content="natural hair care, chemical-free products, handmade hair powder, organic skin care">
+  <title>RAYUDU Homemades | Natural Hair & Skin Care</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2d4d3a;
+      --secondary: #e6dfc5;
+      --accent: #c8b88a;
+      --text: #333333;
+      --light: #f5f0e1;
+      --white: #ffffff;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+      --dark-green: #1e3527;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--light);
+      position: relative;
+      padding-bottom: 100px;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Header Styles */
+    header {
+      background: var(--primary);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 70px;
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem;
+      transition: var(--transition);
+      border-radius: 4px;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    .cart-icon {
+      position: relative;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: var(--primary);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(45, 77, 58, 0.8), rgba(45, 77, 58, 0.8)), 
+                  url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      padding: 2rem;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Search & Categories */
+    .search-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .search-bar {
+      display: flex;
+      background: var(--white);
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 1rem;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .search-bar button {
+      background: var(--accent);
+      color: var(--primary);
+      border: none;
+      padding: 0 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .search-bar button:hover {
+      background: var(--secondary);
+    }
+
+    .category-filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .category-btn {
+      background: var(--white);
+      border: 1px solid var(--primary);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .category-btn.active, .category-btn:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Products Section */
+    .products {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 3px;
+      background: var(--accent);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--accent);
+      color: var(--primary);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .product-image {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .product-price {
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .product-details {
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .product-details ul {
+      padding-left: 1.2rem;
+      margin: 0.5rem 0;
+    }
+
+    .product-details li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .product-details li:before {
+      content: "•";
+      color: var(--accent);
+      font-size: 1.5rem;
+      position: absolute;
+      left: 0;
+      top: -3px;
+    }
+
+    .product-actions {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Benefits Section */
+    .benefits {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem auto;
+      max-width: 1000px;
+    }
+
+    .benefit-item {
+      flex: 1 1 200px;
+      max-width: 250px;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .benefit-item h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Guarantee Banner */
+    .guarantee-banner {
+      background: var(--secondary);
+      padding: 2rem;
+      border-radius: 8px;
+      margin: 2rem auto;
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .guarantee-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+
+    .guarantee-text {
+      text-align: left;
+      max-width: 600px;
+    }
+
+    .guarantee-text h3 {
+      color: var(--primary);
+      margin-top: 0;
+    }
+
+    /* About Section */
+    .about {
+      padding: 4rem 2rem;
+      background: var(--white);
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      padding: 4rem 2rem;
+      background: var(--light);
+    }
+
+    .testimonials-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .testimonial-card:before {
+      content: '"';
+      font-family: Georgia, serif;
+      font-size: 5rem;
+      color: var(--accent);
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      opacity: 0.3;
+    }
+
+    .testimonial-content {
+      font-style: italic;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      font-weight: bold;
+      color: var(--primary);
+      text-align: right;
+    }
+
+    /* Shopping Cart */
+    .cart-overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+      display: none;
+      justify-content: flex-end;
+    }
+
+    .cart-container {
+      width: 100%;
+      max-width: 500px;
+      background: var(--white);
+      height: 100%;
+      overflow-y: auto;
+      padding: 2rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .cart-overlay.active {
+      display: flex;
+    }
+
+    .cart-overlay.active .cart-container {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .cart-items {
+      margin-bottom: 2rem;
+    }
+
+    .cart-item {
+      display: flex;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .cart-item-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-right: 1rem;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .cart-item-price {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .cart-item-remove {
+      background: none;
+      border: none;
+      color: #ff6b6b;
+      cursor: pointer;
+    }
+
+    .cart-total {
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-align: right;
+      margin-bottom: 1.5rem;
+    }
+
+    .checkout-btn {
+      width: 100%;
+    }
+
+    /* Newsletter */
+    .newsletter {
+      padding: 4rem 2rem;
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .newsletter-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form {
+      display: flex;
+      margin-top: 2rem;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 1rem;
+      border: none;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .newsletter-btn {
+      background: var(--accent);
+      color: var(--primary);
+      border: none;
+      padding: 0 1.5rem;
+      border-radius: 0 4px 4px 0;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .newsletter-btn:hover {
+      background: var(--secondary);
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 4rem 2rem;
+      background: var(--white);
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-methods {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .contact-method:hover {
+      background: rgba(200, 184, 138, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .contact-icon {
+      font-size: 1.8rem;
+      color: var(--accent);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .social-link {
+      color: var(--primary);
+      font-size: 1.8rem;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .footer-logo {
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--primary);
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--secondary);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-outline:hover {
+      background: var(--accent);
+      color: var(--primary);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        height: auto;
+        padding: 4rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .product-grid, .testimonial-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+
+      .benefits {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .benefit-item {
+        max-width: 100%;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-input {
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+      }
+
+      .newsletter-btn {
+        border-radius: 4px;
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .product-grid, .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .guarantee-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .guarantee-text {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Cart -->
+  <header>
+    <div class="header-container">
+      <img src="logo.png" alt="RAYUDU Homemades" class="logo">
+      <nav>
+        <a href="#home"><i class="fas fa-home"></i> Home</a>
+        <a href="#products"><i class="fas fa-store"></i> Products</a>
+        <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+        <a href="#testimonials"><i class="fas fa-quote-left"></i> Testimonials</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+        <a href="#" class="cart-icon" id="cart-toggle">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Shopping Cart -->
+  <div class="cart-overlay" id="cart-overlay">
+    <div class="cart-container">
+      <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button class="close-cart" id="close-cart">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="cart-items" id="cart-items">
+        <!-- Cart items will be added dynamically -->
+        <p class="empty-cart-message">Your cart is empty</p>
+      </div>
+      <div class="cart-total">
+        Total: ₹<span id="cart-total">0</span>
+      </div>
+      <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to purchase these items:" class="btn checkout-btn" id="checkout-btn">
+        <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Pure Natural Care</h1>
+      <p>Introducing <span class="highlight">RAYUDU Hair Powder</span> – 100% Natural | Handmade | Chemical-Free</p>
+      <p>Controls Hair Fall, Fights Dandruff, Boosts Growth. Gentle on Hair & Scalp.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+        <a href="#products" class="btn">Explore Products</a>
+        <a href="https://wa.me/message/B5QTXI4S2RVBB1" class="btn btn-outline">
+          <i class="fab fa-whatsapp"></i> Order Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search & Categories -->
+  <div class="search-container">
+    <div class="search-bar">
+      <input type="text" placeholder="Search products..." id="search-input">
+      <button type="submit" id="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+
+  <div class="category-filters">
+    <button class="category-btn active" data-category="all">All Products</button>
+    <button class="category-btn" data-category="hair">Hair Care</button>
+    <button class="category-btn" data-category="skin">Skin Care</button>
+    <button class="category-btn" data-category="powder">Powders</button>
+  </div>
+
+  <!-- Products Section -->
+  <section class="products" id="products">
+    <h2 class="section-title">RAYUDU Homemade Products</h2>
+    <p>All RAYUDU products are handmade with love and natural ingredients</p>
+    
+    <div class="benefits">
+      <div class="benefit-item">
+        <div class="benefit-icon">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <h3>100% Natural</h3>
+        <p>Pure ingredients sourced from nature with no artificial additives</p>
+      </div>
+      
+      <div class="benefit-item">
+        <div class="benefit-icon">
+          <i class="fas fa-hand-holding-heart"></i>
+        </div>
+        <h3>Handmade</h3>
+        <p>Crafted with care using traditional methods</p>
+      </div>
+      
+      <div class="benefit-item">
+        <div class="benefit-icon">
+          <i class="fas fa-ban"></i>
+        </div>
+        <h3>Chemical-Free</h3>
+        <p>No harsh chemicals, parabens, or sulfates</p>
+      </div>
+      
+      <div class="benefit-item">
+        <div class="benefit-icon">
+          <i class="fas fa-recycle"></i>
+        </div>
+        <h3>Eco-Friendly</h3>
+        <p>Sustainable packaging and production</p>
+      </div>
+    </div>
+    
+    <div class="product-grid" id="product-grid">
+      <!-- Hair Powder -->
+      <div class="product-card" data-category="hair powder">
+        <span class="product-badge">Bestseller</span>
+        <img src="https://via.placeholder.com/300x300?text=RAYUDU+Hair+Powder" alt="RAYUDU Hair Powder" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">RAYUDU Hair Powder</h3>
+          <p class="product-price">₹300 (200g)</p>
+          <div class="product-details">
+            <p>Made with 12 natural ingredients by RAYUDU</p>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+              <li>Controls hair fall effectively</li>
+              <li>Fights dandruff naturally</li>
+              <li>Promotes healthy hair growth</li>
+              <li>Gentle on scalp and hair</li>
+              <li>100% natural and chemical-free</li>
+            </ul>
+          </div>
+          <div class="product-actions">
+            <button class="btn add-to-cart" data-id="1" data-name="RAYUDU Hair Powder" data-price="300" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Hair+Powder">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Hair Powder" class="btn btn-outline">
+              <i class="fab fa-whatsapp"></i> Quick Order
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soapnut Powder -->
+      <div class="product-card" data-category="hair powder">
+        <img src="https://via.placeholder.com/300x300?text=RAYUDU+Soapnut+Powder" alt="RAYUDU Soapnut Powder" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">RAYUDU Soapnut Powder</h3>
+          <p class="product-price">₹100 (100g)</p>
+          <div class="product-details">
+            <p>Natural cleanser for hair and skin by RAYUDU</p>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+              <li>Natural hair cleanser and conditioner</li>
+              <li>Mild and gentle on scalp</li>
+              <li>Reduces dandruff and irritation</li>
+              <li>Adds natural shine to hair</li>
+              <li>Can be used for skin cleansing</li>
+            </ul>
+          </div>
+          <div class="product-actions">
+            <button class="btn add-to-cart" data-id="2" data-name="RAYUDU Soapnut Powder" data-price="100" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Soapnut+Powder">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Soapnut Powder" class="btn btn-outline">
+              <i class="fab fa-whatsapp"></i> Quick Order
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Neem Powder -->
+      <div class="product-card" data-category="skin powder">
+        <img src="https://via.placeholder.com/300x300?text=RAYUDU+Neem+Powder" alt="RAYUDU Neem Powder" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">RAYUDU Neem Powder</h3>
+          <p class="product-price">₹25 (100g)</p>
+          <div class="product-details">
+            <p>Natural solution for skin and scalp care by RAYUDU</p>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+              <li>Helps fight acne and skin infections</li>
+              <li>Supports dandruff control</li>
+              <li>Soothes itching and irritation</li>
+              <li>Versatile for face, hair or body</li>
+              <li>100% pure and chemical-free</li>
+            </ul>
+          </div>
+          <div class="product-actions">
+            <button class="btn add-to-cart" data-id="3" data-name="RAYUDU Neem Powder" data-price="25" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Neem+Powder">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Neem Powder" class="btn btn-outline">
+              <i class="fab fa-whatsapp"></i> Quick Order
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Amla Powder -->
+      <div class="product-card" data-category="hair powder">
+        <span class="product-badge">Popular</span>
+        <img src="https://via.placeholder.com/300x300?text=RAYUDU+Amla+Powder" alt="RAYUDU Amla Powder" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">RAYUDU Amla Powder</h3>
+          <p class="product-price">₹80 (100g)</p>
+          <div class="product-details">
+            <p>Rich in Vitamin C for hair and skin by RAYUDU</p>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+              <li>Supports hair growth and strengthens roots</li>
+              <li>Reduces hair fall and premature greying</li>
+              <li>Adds natural shine and volume to hair</li>
+              <li>Brightens skin and helps clear blemishes</li>
+              <li>100% pure and chemical-free</li>
+            </ul>
+          </div>
+          <div class="product-actions">
+            <button class="btn add-to-cart" data-id="4" data-name="RAYUDU Amla Powder" data-price="80" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Amla+Powder">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Amla Powder" class="btn btn-outline">
+              <i class="fab fa-whatsapp"></i> Quick Order
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shikakai Powder -->
+      <div class="product-card" data-category="hair powder">
+        <img src="https://via.placeholder.com/300x300?text=RAYUDU+Shikakai+Powder" alt="RAYUDU Shikakai Powder" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">RAYUDU Shikakai Powder</h3>
+          <p class="product-price">₹50 (100g)</p>
+          <div class="product-details">
+            <p>Natural hair cleanser by RAYUDU</p>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+              <li>Gently cleanses without stripping natural oils</li>
+              <li>Promotes hair growth and reduces hair fall</li>
+              <li>Conditions hair naturally</li>
+              <li>Fights dandruff and scalp irritation</li>
+              <li>Makes hair soft and manageable</li>
+            </ul>
+          </div>
+          <div class="product-actions">
+            <button class="btn add-to-cart" data-id="5" data-name="RAYUDU Shikakai Powder" data-price="50" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Shikakai+Powder">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Shikakai Powder" class="btn btn-outline">
+              <i class="fab fa-whatsapp"></i> Quick Order
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Curry Leaves Powder -->
+      <div class="product-card" data-category="hair powder">
+        <img src="https://via.placeholder.com/300x300?text=RAYUDU+Curry+Leaves+Powder" alt="RAYUDU Curry Leaves Powder" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">RAYUDU Curry Leaves Powder</h3>
+          <p class="product-price">₹70 (100g)</p>
+          <div class="product-details">
+            <p>Multipurpose powder for hair and health by RAYUDU</p>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+              <li>Reduces hair fall and premature greying</li>
+              <li>Strengthens hair roots and supports growth</li>
+              <li>Rich in iron, calcium and antioxidants</li>
+              <li>Can be used in hair care or cooking</li>
+              <li>100% natural and chemical-free</li>
+            </ul>
+          </div>
+          <div class="product-actions">
+            <button class="btn add-to-cart" data-id="6" data-name="RAYUDU Curry Leaves Powder" data-price="70" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Curry+Leaves+Powder">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Curry Leaves Powder" class="btn btn-outline">
+              <i class="fab fa-whatsapp"></i> Quick Order
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hair Powder with Shikakai -->
+      <div class="product-card" data-category="hair powder">
+        <img src="https://via.placeholder.com/300x300?text=RAYUDU+Hair+Powder+with+Shikakai" alt="RAYUDU Hair Powder with Shikakai" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">RAYUDU Hair Powder with Shikakai</h3>
+          <p class="product-price">₹100 (100g)</p>
+          <div class="product-details">
+            <p>Special blend by RAYUDU for complete hair care</p>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+              <li>Cleanses and conditions hair naturally</li>
+              <li>Reduces hair fall and promotes growth</li>
+              <li>Adds shine and softness to hair</li>
+              <li>Fights dandruff and scalp problems</li>
+              <li>Gentle enough for daily use</li>
+            </ul>
+          </div>
+          <div class="product-actions">
+            <button class="btn add-to-cart" data-id="7" data-name="RAYUDU Hair Powder with Shikakai" data-price="100" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Hair+Powder+with+Shikakai">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Hair Powder with Shikakai" class="btn btn-outline">
+              <i class="fab fa-whatsapp"></i> Quick Order
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hair Powder with Soapnut -->
+      <div class="product-card" data-category="hair powder">
+        <img src="https://via.placeholder.com/300x300?text=RAYUDU+Hair+Powder+with+Soapnut" alt="RAYUDU Hair Powder with Soapnut" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">RAYUDU Hair Powder with Soapnut</h3>
+          <p class="product-price">₹100 (100g)</p>
+          <div class="product-details">
+            <p>Special cleansing blend by RAYUDU</p>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+              <li>Deep cleanses hair and scalp</li>
+              <li>Removes dirt and excess oil naturally</li>
+              <li>Reduces dandruff and hair fall</li>
+              <li>Leaves hair soft and shiny</li>
+              <li>100% natural ingredients</li>
+            </ul>
+          </div>
+          <div class="product-actions">
+            <button class="btn add-to-cart" data-id="8" data-name="RAYUDU Hair Powder with Soapnut" data-price="100" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Hair+Powder+with+Soapnut">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Hair Powder with Soapnut" class="btn btn-outline">
+              <i class="fab fa-whatsapp"></i> Quick Order
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="guarantee-banner">
+      <div class="guarantee-icon">
+        <i class="fas fa-certificate"></i>
+      </div>
+      <div class="guarantee-text">
+        <h3>RAYUDU's Quality Promise</h3>
+        <p>Every RAYUDU product is made with the highest quality natural ingredients, carefully selected and processed to preserve their beneficial properties. We stand behind our products and offer a satisfaction guarantee.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="about-container">
+      <h2 class="section-title">About RAYUDU HOMEMADES</h2>
+      <p>RAYUDU HOMEMADES is a family-run business based in East Godavari, dedicated to creating natural, handmade personal care products. We believe in the power of nature to nurture and heal, which is why all our products are free from harsh chemicals, artificial colors, and synthetic fragrances.</p>
+      <p>Our journey began with a simple hair powder recipe passed down through generations, and has now grown into a range of products made with the same care and commitment to purity.</p>
+      
+      <div class="benefits" style="margin-top: 3rem;">
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-seedling"></i>
+          </div>
+          <h3>Traditional Wisdom</h3>
+          <p>Recipes based on natural principles and family traditions</p>
+        </div>
+        
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-mortar-pestle"></i>
+          </div>
+          <h3>Handcrafted</h3>
+          <p>Each product made with personal attention and care</p>
+        </div>
+        
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Ethical Sourcing</h3>
+          <p>Ingredients sourced from trusted local suppliers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials-container">
+      <h2 class="section-title">What Our Customers Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>The 200g RAYUDU Hair Powder lasts me a full month! My hair has never been healthier. I've noticed significantly less hair fall after just 3 weeks of use.</p>
+          </div>
+          <p class="testimonial-author">- Priya K., Hyderabad</p>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>The RAYUDU Soapnut blend gives my hair beautiful shine without any dryness. Love that it's all natural! I've completely switched from commercial shampoos.</p>
+          </div>
+          <p class="testimonial-author">- Ananya S., Visakhapatnam</p>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>As someone with sensitive scalp, I appreciate that all RAYUDU products are gentle yet effective. The neem powder cleared my dandruff in just 2 weeks.</p>
+          </div>
+          <p class="testimonial-author">- Rohan M., Bengaluru</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter">
+    <div class="newsletter-container">
+      <h2>Join Our Newsletter</h2>
+      <p>Get updates on new RAYUDU products, natural care tips, and special offers</p>
+      <form class="newsletter-form" id="newsletter-form">
+        <input type="email" placeholder="Your email address" class="newsletter-input" required>
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="contact-container">
+      <h2 class="section-title">Contact RAYUDU</h2>
+      <p>We'd love to hear from you! Reach out for product inquiries or custom orders.</p>
+      
+      <div class="contact-methods">
+        <a href="mailto:rayuduhomemades@gmail.com" class="contact-method">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div>
+            <h3>Email</h3>
+            <p>rayuduhomemades@gmail.com</p>
+          </div>
+        </a>
+        
+        <a href="tel:+919121916696" class="contact-method">
+          <div class="contact-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div>
+            <h3>Phone/WhatsApp</h3>
+            <p>+91 91219 16696</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="social-links">
+        <a href="https://instagram.com/rayuduhomemades" target="_blank" class="social-link">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/message/B5QTXI4S2RVBB1" class="social-link">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://facebook.com/rayuduhomemades" target="_blank" class="social-link">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
+      
+      <a class="btn" href="https://wa.me/message/B5QTXI4S2RVBB1" style="margin-top: 2rem;">
+        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <img src="logo.png" alt="RAYUDU Homemades" class="footer-logo">
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Shipping Info</a>
+    </div>
+    <p>&copy; 2025 RAYUDU Homemades. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">Made with <i class="fas fa-heart" style="color: #ff6b6b;"></i> in India</p>
+  </footer>
+
+  <script>
+    // Shopping Cart Functionality
+    const cart = [];
+    const cartOverlay = document.getElementById('cart-overlay');
+    const cartToggle = document.getElementById('cart-toggle');
+    const closeCart = document.getElementById('close-cart');
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const cartCount = document.querySelector('.cart-count');
+
+    // Toggle Cart
+    cartToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      cartOverlay.classList.add('active');
+    });
+
+    closeCart.addEventListener('click', () => {
+      cartOverlay.classList.remove('active');
+    });
+
+    // Add to Cart
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        const product = {
+          id: button.dataset.id,
+          name: button.dataset.name,
+          price: button.dataset.price,
+          image: button.dataset.image
+        };
+        
+        // Check if product already in cart
+        const existingItem = cart.find(item => item.id === product.id);
+        
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          product.quantity = 1;
+          cart.push(product);
+        }
+        
+        updateCart();
+        cartOverlay.classList.add('active');
+      });
+    });
+
+    // Update Cart
+    function updateCart() {
+      // Update cart items display
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p class="empty-cart-message">Your cart is empty</p>';
+      } else {
+        cartItems.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+            <div class="cart-item-info">
+              <h4 class="cart-item-title">${item.name}</h4>
+              <p class="cart-item-price">₹${item.price} x ${item.quantity}</p>
+              <button class="cart-item-remove" data-id="${item.id}">
+                <i class="fas fa-trash"></i> Remove
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Update total
+      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      cartTotal.textContent = total;
+
+      // Update cart count
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCount.textContent = count;
+
+      // Update WhatsApp checkout link
+      const itemsText = cart.map(item => 
+        `${item.name} (${item.quantity} x ₹${item.price})`
+      ).join('%0A');
+      
+      checkoutBtn.href = `https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to purchase these items:%0A%0A${itemsText}%0A%0ATotal: ₹${total}`;
+    }
+
+    // Remove item from cart
+    cartItems.addEventListener('click', (e) => {
+      if (e.target.closest('.cart-item-remove')) {
+        const id = e.target.closest('.cart-item-remove').dataset.id;
+        const index = cart.findIndex(item => item.id === id);
+        
+        if (index !== -1) {
+          cart.splice(index, 1);
+          updateCart();
+        }
+      }
+    });
+
+    // Product Search
+    document.getElementById('search-btn').addEventListener('click', searchProducts);
+    document.getElementById('search-input').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') searchProducts();
+    });
+
+    function searchProducts() {
+      const term = document.getElementById('search-input').value.toLowerCase();
+      const products = document.querySelectorAll('.product-card');
+      
+      products.forEach(product => {
+        const title = product.querySelector('.product-title').textContent.toLowerCase();
+        const desc = product.querySelector('.product-details').textContent.toLowerCase();
+        
+        if (title.includes(term) || desc.includes(term)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    // Category Filter
+    document.querySelectorAll('.category-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active button
+        document.querySelectorAll('.category-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        button.classList.add('active');
+        
+        // Filter products
+        const category = button.dataset.category;
+        const products = document.querySelectorAll('.product-card');
+        
+        products.forEach(product => {
+          if (category === 'all' || product.dataset.category.includes(category)) {
+            product.style.display = 'block';
+          } else {
+            product.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Newsletter Form
+    document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = e.target.querySelector('input').value;
+      alert(`Thank you for subscribing with ${email}!`);
+      e.target.reset();
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
