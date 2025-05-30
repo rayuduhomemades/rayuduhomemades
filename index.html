@@ -700,6 +700,60 @@
       color: var(--primary);
     }
 
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    }
+    
+    /* WhatsApp QR Code Section */
+    .whatsapp-qr {
+      text-align: center;
+      padding: 2rem;
+      background: var(--white);
+      margin: 2rem auto;
+      max-width: 500px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    
+    .whatsapp-qr img {
+      max-width: 200px;
+      margin: 1rem auto;
+      display: block;
+      border: 1px solid #ddd;
+      padding: 10px;
+      background: white;
+    }
+    
+    /* Enhance WhatsApp buttons */
+    .whatsapp-btn {
+      background: #25D366;
+      color: white !important;
+    }
+    
+    .whatsapp-btn:hover {
+      background: #128C7E !important;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .header-container {
@@ -804,7 +858,7 @@
       <div class="cart-total">
         Total: ₹<span id="cart-total">0</span>
       </div>
-      <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to purchase these items:" class="btn checkout-btn" id="checkout-btn">
+      <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to purchase these items:" class="btn whatsapp-btn checkout-btn" id="checkout-btn">
         <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
       </a>
     </div>
@@ -818,7 +872,7 @@
       <p>Controls Hair Fall, Fights Dandruff, Boosts Growth. Gentle on Hair & Scalp.</p>
       <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
         <a href="#products" class="btn">Explore Products</a>
-        <a href="https://wa.me/message/B5QTXI4S2RVBB1" class="btn btn-outline">
+        <a href="https://wa.me/message/B5QTXI4S2RVBB1" class="btn whatsapp-btn">
           <i class="fab fa-whatsapp"></i> Order Now
         </a>
       </div>
@@ -902,7 +956,7 @@
             <button class="btn add-to-cart" data-id="1" data-name="RAYUDU Hair Powder" data-price="300" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Hair+Powder">
               <i class="fas fa-cart-plus"></i> Add to Cart
             </button>
-            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Hair Powder" class="btn btn-outline">
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Hair Powder" class="btn whatsapp-btn">
               <i class="fab fa-whatsapp"></i> Quick Order
             </a>
           </div>
@@ -930,7 +984,7 @@
             <button class="btn add-to-cart" data-id="2" data-name="RAYUDU Soapnut Powder" data-price="100" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Soapnut+Powder">
               <i class="fas fa-cart-plus"></i> Add to Cart
             </button>
-            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Soapnut Powder" class="btn btn-outline">
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Soapnut Powder" class="btn whatsapp-btn">
               <i class="fab fa-whatsapp"></i> Quick Order
             </a>
           </div>
@@ -958,7 +1012,7 @@
             <button class="btn add-to-cart" data-id="3" data-name="RAYUDU Neem Powder" data-price="25" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Neem+Powder">
               <i class="fas fa-cart-plus"></i> Add to Cart
             </button>
-            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Neem Powder" class="btn btn-outline">
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Neem Powder" class="btn whatsapp-btn">
               <i class="fab fa-whatsapp"></i> Quick Order
             </a>
           </div>
@@ -987,7 +1041,7 @@
             <button class="btn add-to-cart" data-id="4" data-name="RAYUDU Amla Powder" data-price="80" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Amla+Powder">
               <i class="fas fa-cart-plus"></i> Add to Cart
             </button>
-            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Amla Powder" class="btn btn-outline">
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Amla Powder" class="btn whatsapp-btn">
               <i class="fab fa-whatsapp"></i> Quick Order
             </a>
           </div>
@@ -1015,7 +1069,7 @@
             <button class="btn add-to-cart" data-id="5" data-name="RAYUDU Shikakai Powder" data-price="50" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Shikakai+Powder">
               <i class="fas fa-cart-plus"></i> Add to Cart
             </button>
-            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Shikakai Powder" class="btn btn-outline">
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Shikakai Powder" class="btn whatsapp-btn">
               <i class="fab fa-whatsapp"></i> Quick Order
             </a>
           </div>
@@ -1043,7 +1097,7 @@
             <button class="btn add-to-cart" data-id="6" data-name="RAYUDU Curry Leaves Powder" data-price="70" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Curry+Leaves+Powder">
               <i class="fas fa-cart-plus"></i> Add to Cart
             </button>
-            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Curry Leaves Powder" class="btn btn-outline">
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Curry Leaves Powder" class="btn whatsapp-btn">
               <i class="fab fa-whatsapp"></i> Quick Order
             </a>
           </div>
@@ -1071,7 +1125,7 @@
             <button class="btn add-to-cart" data-id="7" data-name="RAYUDU Hair Powder with Shikakai" data-price="100" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Hair+Powder+with+Shikakai">
               <i class="fas fa-cart-plus"></i> Add to Cart
             </button>
-            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Hair Powder with Shikakai" class="btn btn-outline">
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Hair Powder with Shikakai" class="btn whatsapp-btn">
               <i class="fab fa-whatsapp"></i> Quick Order
             </a>
           </div>
@@ -1099,7 +1153,7 @@
             <button class="btn add-to-cart" data-id="8" data-name="RAYUDU Hair Powder with Soapnut" data-price="100" data-image="https://via.placeholder.com/300x300?text=RAYUDU+Hair+Powder+with+Soapnut">
               <i class="fas fa-cart-plus"></i> Add to Cart
             </button>
-            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Hair Powder with Soapnut" class="btn btn-outline">
+            <a href="https://wa.me/message/B5QTXI4S2RVBB1?text=I'd like to order RAYUDU Hair Powder with Soapnut" class="btn whatsapp-btn">
               <i class="fab fa-whatsapp"></i> Quick Order
             </a>
           </div>
@@ -1200,6 +1254,17 @@
       <h2 class="section-title">Contact RAYUDU</h2>
       <p>We'd love to hear from you! Reach out for product inquiries or custom orders.</p>
       
+      <!-- WhatsApp QR Code Section -->
+      <div class="whatsapp-qr">
+        <h3>Order via WhatsApp</h3>
+        <p>Scan this QR code to start chatting with us directly on WhatsApp</p>
+        <img src="WhatsApp Image 2025-05-27 at 1.05.22 AM.jpeg" alt="WhatsApp QR Code">
+        <p>Or click any WhatsApp button on this page</p>
+        <a href="https://wa.me/message/B5QTXI4S2RVBB1" class="btn whatsapp-btn" style="margin-top: 1rem;">
+          <i class="fab fa-whatsapp"></i> Open WhatsApp
+        </a>
+      </div>
+      
       <div class="contact-methods">
         <a href="mailto:rayuduhomemades@gmail.com" class="contact-method">
           <div class="contact-icon">
@@ -1234,7 +1299,7 @@
         </a>
       </div>
       
-      <a class="btn" href="https://wa.me/message/B5QTXI4S2RVBB1" style="margin-top: 2rem;">
+      <a class="btn whatsapp-btn" href="https://wa.me/message/B5QTXI4S2RVBB1" style="margin-top: 2rem;">
         <i class="fab fa-whatsapp"></i> Chat on WhatsApp
       </a>
     </div>
@@ -1255,6 +1320,11 @@
     <p>&copy; 2025 RAYUDU Homemades. All rights reserved.</p>
     <p style="margin-top: 0.5rem;">Made with <i class="fas fa-heart" style="color: #ff6b6b;"></i> in India</p>
   </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/message/B5QTXI4S2RVBB1" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <script>
     // Shopping Cart Functionality
