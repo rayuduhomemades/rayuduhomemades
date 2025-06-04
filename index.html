@@ -1,11 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Previous head content remains the same -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RAYUDU Homemades - 100% Natural Hair & Skin Care Products">
+  <meta name="keywords" content="natural hair care, chemical-free products, handmade hair powder, organic skin care">
+  <title>RAYUDU Homemades | Natural Hair & Skin Care</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
-    /* Previous styles remain the same */
+    :root {
+      --primary: #2d4d3a;
+      --secondary: #e6dfc5;
+      --accent: #c8b88a;
+      --text: #333333;
+      --light: #f5f0e1;
+      --white: #ffffff;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--light);
+      position: relative;
+      padding-bottom: 100px;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Header Styles */
+    header {
+      background: var(--primary);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 70px;
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem;
+      transition: var(--transition);
+      border-radius: 4px;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(45, 77, 58, 0.8), rgba(45, 77, 58, 0.8)), 
+                  url('images/hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      padding: 2rem;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Products Section */
+    .products {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-image {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    /* WhatsApp Button Styles */
+    .whatsapp-btn {
+      background: #25D366;
+      color: white !important;
+    }
     
-    /* Add this new style for the order modal */
+    .whatsapp-btn:hover {
+      background: #128C7E !important;
+    }
+
+    /* Order Modal */
     .order-modal {
       display: none;
       position: fixed;
@@ -26,23 +178,55 @@
       max-width: 500px;
       width: 90%;
     }
-    
-    .order-modal h3 {
-      color: var(--primary);
-      margin-bottom: 1rem;
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
     }
-    
-    .order-modal-buttons {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Previous HTML content remains the same until the product cards -->
+  <header>
+    <div class="header-container">
+      <img src="images/logo.png" alt="RAYUDU Homemades" class="logo">
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <!-- Add this modal at the bottom of the body, before the scripts -->
+  <!-- Order Modal -->
   <div class="order-modal" id="order-modal">
     <div class="order-modal-content">
       <h3>Complete Your Order</h3>
@@ -56,104 +240,124 @@
         <div style="margin-bottom: 1rem;">
           <textarea placeholder="Shipping Address" id="order-address" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; min-height: 80px;"></textarea>
         </div>
-        <div style="margin-bottom: 1rem;">
-          <textarea placeholder="Additional Notes (optional)" id="order-notes" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; min-height: 60px;"></textarea>
-        </div>
-        <div class="order-modal-buttons">
-          <button type="button" class="btn btn-outline" id="cancel-order">Cancel</button>
-          <button type="submit" class="btn whatsapp-btn">Complete Order via WhatsApp</button>
-        </div>
+        <button type="submit" class="btn whatsapp-btn" style="width: 100%; padding: 1rem;">
+          <i class="fab fa-whatsapp"></i> Complete Order via WhatsApp
+        </button>
       </form>
     </div>
   </div>
 
-  <!-- Previous scripts remain until the quick order button handling -->
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Pure Natural Care</h1>
+        <p>100% Natural | Handmade | Chemical-Free Products</p>
+        <a href="#products" class="btn" style="margin-top: 1rem;">View Products</a>
+      </div>
+    </section>
+
+    <section class="products" id="products">
+      <h2 class="section-title">Our Products</h2>
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <img src="images/products/hair-powder.jpg" alt="RAYUDU Hair Powder" class="product-image">
+          <div class="product-info">
+            <h3>RAYUDU Hair Powder</h3>
+            <p>₹300 (200g)</p>
+            <button class="btn whatsapp-btn quick-order-btn" 
+                    data-name="RAYUDU Hair Powder" 
+                    data-price="300" 
+                    data-weight="200g"
+                    style="width: 100%; margin-top: 1rem;">
+              <i class="fab fa-whatsapp"></i> Order Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <img src="images/products/amla-powder.jpg" alt="RAYUDU Amla Powder" class="product-image">
+          <div class="product-info">
+            <h3>RAYUDU Amla Powder</h3>
+            <p>₹80 (100g)</p>
+            <button class="btn whatsapp-btn quick-order-btn" 
+                    data-name="RAYUDU Amla Powder" 
+                    data-price="80" 
+                    data-weight="100g"
+                    style="width: 100%; margin-top: 1rem;">
+              <i class="fab fa-whatsapp"></i> Order Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Add more products as needed -->
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2 class="section-title">About Us</h2>
+      <p>RAYUDU HOMEMADES is a family-run business dedicated to natural care products.</p>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2 class="section-title">Contact Us</h2>
+      <p>Email: rayuduhomemades@gmail.com</p>
+      <p>Phone: +91 91219 16696</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 RAYUDU Homemades. All rights reserved.</p>
+  </footer>
 
   <script>
-    // Previous JavaScript remains the same until the quick order button handling
-
-    // Handle quick order buttons (WhatsApp buttons on each product)
+    // Order Modal Functionality
     document.querySelectorAll('.quick-order-btn').forEach(button => {
       button.addEventListener('click', (e) => {
         e.preventDefault();
-        
-        // Get product details from data attributes
         const product = {
-          id: button.dataset.id,
           name: button.dataset.name,
           price: button.dataset.price,
-          weight: button.dataset.weight,
-          image: button.dataset.image
+          weight: button.dataset.weight
         };
-        
-        // Store the product for the order
         sessionStorage.setItem('currentOrder', JSON.stringify([product]));
-        
-        // Show the order modal
         document.getElementById('order-modal').style.display = 'flex';
       });
     });
 
-    // Handle the order modal form submission
+    // Handle Form Submission
     document.getElementById('order-form').addEventListener('submit', (e) => {
       e.preventDefault();
       
       const name = document.getElementById('order-name').value;
       const phone = document.getElementById('order-phone').value;
       const address = document.getElementById('order-address').value;
-      const notes = document.getElementById('order-notes').value;
+      const products = JSON.parse(sessionStorage.getItem('currentOrder'));
       
-      // Get the product from session storage
-      const products = JSON.parse(sessionStorage.getItem('currentOrder')) || [];
-      
-      if (products.length === 0) {
-        alert('No products in order. Please try again.');
-        return;
-      }
-      
-      if (!name || !phone || !address) {
-        alert('Please fill in all required fields.');
-        return;
-      }
-      
-      // Format the WhatsApp message
       let message = `*NEW ORDER*%0A%0A`;
       message += `*Customer Name:* ${name}%0A`;
       message += `*WhatsApp Number:* ${phone}%0A`;
       message += `*Shipping Address:* ${address}%0A%0A`;
-      
       message += `*Order Items:*%0A`;
-      let total = 0;
       
       products.forEach(product => {
         message += `- ${product.name} (${product.weight}) - ₹${product.price}%0A`;
-        total += parseFloat(product.price);
       });
       
-      message += `%0A*Total Amount:* ₹${total.toFixed(2)}%0A%0A`;
-      
-      if (notes) {
-        message += `*Additional Notes:*%0A${notes}%0A%0A`;
-      }
-      
-      message += `Please confirm this order and provide payment details.`;
-      
-      // Open WhatsApp with the formatted message
       window.open(`https://wa.me/message/JPVZYNPSYOFIL1?text=${encodeURIComponent(message)}`, '_blank');
-      
-      // Close the modal and reset the form
       document.getElementById('order-modal').style.display = 'none';
-      document.getElementById('order-form').reset();
-      sessionStorage.removeItem('currentOrder');
-    });
-    
-    // Handle cancel button in order modal
-    document.getElementById('cancel-order').addEventListener('click', () => {
-      document.getElementById('order-modal').style.display = 'none';
-      sessionStorage.removeItem('currentOrder');
     });
 
-    // Previous remaining JavaScript remains the same
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
   </script>
 </body>
 </html>
