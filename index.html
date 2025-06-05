@@ -1562,47 +1562,55 @@
     }
 
     function sendWhatsAppOrder(items) {
-      const name = document.getElementById('customer-name').value || prompt("Please enter your name:");
-      if (!name) return;
-      
-      const phone = document.getElementById('customer-phone').value || prompt("Please enter your WhatsApp number:");
-      if (!phone) return;
-      
-      const address = document.getElementById('customer-address').value || prompt("Please enter your shipping address (if applicable):") || 'Not provided';
-      
-      // Format order details for WhatsApp
-      const orderDetails = items.map(item => 
-        `➤ ${item.name} ${item.weight ? `(${item.weight})` : ''}
-        Quantity: ${item.quantity}
-        Price: ₹${item.price} x ${item.quantity} = ₹${item.price * item.quantity}`
-      ).join('%0A%0A');
-      
-      const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      const shipping = subtotal > 500 ? 0 : 50; // Example shipping calculation
-      const total = subtotal + shipping;
-      
-      const message = `*NEW ORDER - RAYUDU HOMEMADES*%0A%0A` +
-                     `*Customer Details*%0A` +
-                     `Name: ${name}%0A` +
-                     `Phone: ${phone}%0A` +
-                     `Address: ${address}%0A%0A` +
-                     `*Order Items*%0A${orderDetails}%0A%0A` +
-                     `Subtotal: ₹${subtotal}%0A` +
-                     `Shipping: ₹${shipping}%0A` +
-                     `*Total Amount: ₹${total}*%0A%0A` +
-                     `_Thank you for your order! We'll contact you shortly to confirm._`;
-      
-      // Open WhatsApp with pre-filled message
-      window.open(`https://wa.me/919121916696?text=${message}`, '_blank');
-      
-      // Optional: Clear cart after order if using checkout button
-      if (items === cart) {
-        cart.length = 0;
-        updateCart();
-        cartOverlay.classList.remove('active');
-        document.getElementById('customer-details-form').reset();
-      }
-    }
+  const name = document.getElementById('customer-name').value;
+  const phone = document.getElementById('customer-phone').value;
+  const address = document.getElementById('customer-address').value || 'Not provided';
+
+  if (!name || !phone) {
+    const msg = document.createElement('div');
+    msg.innerText = "Please fill in your name and WhatsApp number before checkout.";
+    msg.style.background = "#ffdddd";
+    msg.style.color = "#a00";
+    msg.style.padding = "10px";
+    msg.style.marginTop = "10px";
+    msg.style.textAlign = "center";
+    msg.style.borderRadius = "5px";
+    document.querySelector('.cart-container').prepend(msg);
+    setTimeout(() => msg.remove(), 4000);
+    return;
+  }
+
+  const orderDetails = items.map(item =>
+    \`➤ \${item.name} \${item.weight ? \`(\${item.weight})\` : ''}%0AQty: \${item.quantity} @ ₹\${item.price} = ₹\${item.price * item.quantity}\`
+  ).join('%0A%0A');
+
+  const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const shipping = subtotal > 500 ? 0 : 50;
+  const total = subtotal + shipping;
+
+  const message = \`*NEW ORDER - RAYUDU HOMEMADES*%0A%0A\` +
+                  \`*Customer Details*%0A\` +
+                  \`Name: \${name}%0A\` +
+                  \`Phone: \${phone}%0A\` +
+                  \`Address: \${address}%0A%0A\` +
+                  \`*Order Items*%0A\${orderDetails}%0A%0A\` +
+                  \`Subtotal: ₹\${subtotal}%0A\` +
+                  \`Shipping: ₹\${shipping}%0A\` +
+                  \`*Total: ₹\${total}*%0A%0A\` +
+                  \`_Thank you for your order!_\`;
+
+  const whatsappURL = \`https://wa.me/919121916696?text=\${message}\`;
+
+  window.open(whatsappURL, '_blank');
+
+  if (items === cart) {
+    cart.length = 0;
+    updateCart();
+    cartOverlay.classList.remove('active');
+    document.getElementById('customer-details-form').reset();
+  }
+}
+}
 
     cartItems.addEventListener('click', (e) => {
       if (e.target.closest('.cart-item-remove')) {
