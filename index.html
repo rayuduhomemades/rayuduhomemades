@@ -312,6 +312,13 @@
       margin-top: auto;
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .product-actions .btn {
+      flex: 1;
+      min-width: 120px;
     }
 
     .quantity-controls {
@@ -501,6 +508,7 @@
       border: none;
       font-size: 1.5rem;
       cursor: pointer;
+      color: var(--text);
     }
 
     .cart-items {
@@ -545,6 +553,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.3rem;
+      font-size: 0.9rem;
     }
 
     .cart-total {
@@ -552,6 +561,7 @@
       font-weight: 600;
       text-align: right;
       margin-bottom: 1.5rem;
+      color: var(--primary);
     }
 
     .checkout-btn {
@@ -623,6 +633,8 @@
       padding: 1rem;
       border-radius: 8px;
       transition: var(--transition);
+      text-decoration: none;
+      color: var(--text);
     }
 
     .contact-method:hover {
@@ -696,6 +708,7 @@
       transition: var(--transition);
       border: none;
       cursor: pointer;
+      text-align: center;
     }
 
     .btn:hover {
@@ -766,6 +779,12 @@
       background: #128C7E !important;
     }
 
+    .empty-cart-message {
+      text-align: center;
+      color: var(--text);
+      padding: 2rem 0;
+    }
+
     @media (max-width: 768px) {
       .header-container {
         flex-direction: column;
@@ -812,6 +831,10 @@
         border-radius: 4px;
         padding: 1rem;
       }
+
+      .product-actions .btn {
+        flex: 1 1 100%;
+      }
     }
 
     @media (max-width: 480px) {
@@ -830,6 +853,16 @@
 
       .guarantee-text {
         text-align: center;
+      }
+
+      .cart-item {
+        flex-direction: column;
+      }
+
+      .cart-item-img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 1rem;
       }
     }
   </style>
